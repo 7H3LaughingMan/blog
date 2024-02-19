@@ -29,3 +29,8 @@ jobs:
         uses: 7H3LaughingMan/actions-rclone@main
         with:
           args: copy dist s3:target
+        env:
+          RCLONE_CONFIG_WEBDAV_TYPE: webdav
+          RCLONE_CONFIG_WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
+          RCLONE_CONFIG_WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
+          RCLONE_CONFIG_WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
