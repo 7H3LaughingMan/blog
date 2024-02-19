@@ -24,13 +24,7 @@ jobs:
       - name: Build
         run: hugo --minify
         
-      - name: Upload to WebDAV
-        uses: bxb100/action-upload@main
+      - name: Deploy via Rclone
+        uses: 7H3LaughingMan/actions-rclone@main
         with:
-          provider: webdav
-          provider_options: |
-            endpoint=${{ secrets.WEBDAV_URL }}
-            username=${{ secrets.WEBDAV_USER }}
-            password=${{ secrets.WEBDAV_PASS }}
-            root=/test/
-          include: 'publish/**'
+          args: copy dist s3:target
