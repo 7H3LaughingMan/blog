@@ -1,0 +1,32 @@
+{{ define "body" }}
+    <body class="{{ if .Site.Params.backgroundImage }} background-image" style="background-image: url('{{ .Site.Params.backgroundImage }}');" {{ else }}"{{ end }}>
+{{ end }}
+
+{{ define "main" }}
+    <main aria-role="main">
+        <div>
+            {{ if .Site.Params.Portrait.Path }}
+               <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}" style="max-width:{{ .Site.Params.Portrait.MaxWidth }}" />
+            {{ end }}
+
+            <p>
+                Hello, friend.<br>
+                Hello, friend?<br>
+                That's lame.<br>
+                Maybe I should give you a name.<br>
+                But that's a slippery slope.<br>
+                You're only in my head.<br>
+                We have to remember that.<br>
+                Shit.<br>
+                It's actually happened.<br>
+                I'm talking to an imaginary person.
+            </p>
+
+            {{- with .Site.Params.social }}
+                <div>
+                    {{ partial "social-icons.html" . }}
+                </div>
+            {{- end }}
+        </div>
+    </main>
+{{ end }}
