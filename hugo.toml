@@ -118,17 +118,6 @@ disableHugoGeneratorInject = false
     path     = "/img/portrait.png"
     alt      = "Portrait"
 
-  [params.giscus]
-    repo          = "7H3LaughingMan/blog"
-    category      = "giscus"
-    mapping       = "pathname"
-    strict        = true
-    reactions     = true
-    emitmetadata  = false
-    inputposition = "bottom"
-    theme         = "preferred_color_scheme"
-    lang          = "en"
-
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
   # Addon: Social icons
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
