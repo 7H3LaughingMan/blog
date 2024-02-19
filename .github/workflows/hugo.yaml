@@ -24,12 +24,13 @@ jobs:
       - name: Build
         run: hugo --minify
         
-      - name: Rclone
-        uses: andreiio/rclone-action@v1.2.0
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          args: sync publish webdav:/
-        env:
-          RCLONE_CONFIG_WEBDAV_TYPE: webdav
-          RCLONE_CONFIG_WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
-          RCLONE_CONFIG_WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
-          RCLONE_CONFIG_WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
+          provider: webdav
+          provider_options: |
+            endpoint=${{ secrets.WEBDAV_URL }}
+            username=${{ secrets.WEBDAV_USER }}
+            password=${{ secrets.WEBDAV_PASS }}
+            root=/test/
+          include: 'publish/**'
