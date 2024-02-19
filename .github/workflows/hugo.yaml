@@ -28,7 +28,8 @@ jobs:
       - name: Deploy via Rclone
         uses: 7H3LaughingMan/actions-rclone@main
         with:
-          args: copy publish webdav:/
+          entrypoint: 'ls -la'
+          #args: copy publish webdav:/
         env:
           RCLONE_CONFIG_WEBDAV_TYPE: webdav
           RCLONE_CONFIG_WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
